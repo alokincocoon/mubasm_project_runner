@@ -1,0 +1,25 @@
+version: '3'
+services:
+  credit-validator:
+   restart: always
+   build: 
+    dockerfile: Dockerfile
+    context: ./credit_card_validator
+   env_file:
+    - './credit_card_validator.env'
+   volumes:
+    - .:/home/app/credit_card_validator/
+   ports:
+    - '8080:8080'
+
+  # command-line-app:
+  #  restart: always
+  #  build: 
+  #   dockerfile: Dockerfile
+  #   context: ./command_line_app
+  #  volumes:
+  #   - .:/home/app/command_line_app/
+  #  ports:
+  #   - '8081:8081'
+
+ 
